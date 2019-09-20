@@ -17,7 +17,7 @@ grep $regex $fileName
 #Print the number of phone numbers in regex_practice.txt
 grep -c -E [0-9][0-9][0-9]-[0-9][0-9][0-9]-[0-9][0-9][0-9][0-9] regex_practice.txt
 #print the number of email adresses in regex_practice
-grep -c -E [a-z,A-Z,0-9]+@[a-z,A-Z,0-9]+\.[a-z,A-Z]+ regex_practice.txt
+grep -c -E [a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]+ regex_practice.txt
 #print the number of phone numbers that start with 303-
 grep -o -E "303-[0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]" regex_practice.txt
 #output all the emails that end in @geocities.com and save it to email_results
