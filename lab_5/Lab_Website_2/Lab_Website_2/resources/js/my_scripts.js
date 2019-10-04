@@ -35,6 +35,7 @@ var players = [{name:"John Doe", img: "../resources/img/player1.jpg", alt:"Image
 */
 function viewStudentStats(id, toggle) {
 	document.getElementById(id).style.visibility = toggle == 1 ? 'visible' : 'hidden';
+	document.getElementById(id).style.height = toggle == 1 ? 'auto' : '0';
 }
 /*
 	Home Page:
