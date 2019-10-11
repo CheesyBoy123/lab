@@ -1,0 +1,35 @@
+-- Gerrett Pape
+--
+--
+--Q4.1
+CREATE TABLE IF NOT EXISTS University(UniversityName VARCHAR(50), DateEstablished DATE, Address VARCHAR(255), StudentPopulation INT, AcceptanceRate DECIMAL, PRIMARY KEY(UniversityName));
+--Q4.2
+INSERT INTO University(UniversityName, DateEstablished, Address, StudentPopulation, AcceptanceRate) values ('CU Boulder', date '1876-01-01', '1100 28th St, Boulder, CO 80303', 35000, .80);
+--Q5.1
+SELECT name, major FROM football_players ORDER BY major;
+--Q5.2
+SELECT name, rushing_yards FROM football_players WHERE rushing_yards > 70;
+--Q5.3
+SELECT * FROM football_games WHERE visitor_name = 'Nebraska';
+--Q5.4
+SELECT * FROM football_games WHERE home_score > visitor_score;
+--Q5.5
+SELECT visitor_name, game_date FROM football_games WHERE EXTRACT(MONTH FROM game_date) > 8;
+--Q5.6
+SELECT AVG(home_score) FROM football_games;
+--Q5.7
+SELECT major, SUM(1) FROM football_players GROUP BY major;
+--Q5.8
+SELECT major, SUM(1) FROM football_players GROUP BY major HAVING major = 'CSCI';
+
+--Q6.1
+CREATE VIEW TotalWins AS (SELECT COUNT(home_score) as Wins FROM football_games WHERE home_score > visitor_score);
+--Q6.2
+CREATE VIEW TotalGames AS (SELECT COUNT(visitor_name) as Games FROM football_games);
+--Q6.3
+SELECT 100 * (Wins / cast(Games AS float)) FROM TotalWins, TotalGames;
+
+--Q7.1
+SELECT COUNT(*) FROM football_games G, football_players P WHERE P.id = ANY(G.players) AND P.name = 'Cedric Vega';
+--Q7.2
+SELECT AVG(rushing_yards) FROM football_games G, football_players P WHERE P.id = ANY(G.players) AND P.name = 'Cedric Vega';
