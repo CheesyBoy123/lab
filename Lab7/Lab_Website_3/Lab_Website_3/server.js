@@ -225,7 +225,7 @@ app.get('/team_stats', function(req, res) {
         }).catch(error => {
           // display error message in case an error
           request.flash('error', err);
-          res.render('pages/page_name',{
+          res.render('pages/team_stats',{
 			       my_title: "Team Stats",
 			       games: '',
 			       w: '',
